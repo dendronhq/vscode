@@ -198,6 +198,12 @@ export class AnythingQuickAccessProvider extends PickerQuickAccessProvider<IAnyt
 	provide(picker: IQuickPick<IAnythingQuickPickItem>, token: CancellationToken): IDisposable {
 		const disposables = new DisposableStore();
 
+		const name = this.editorService?.activeEditor?.getName();
+		const nameWithoutExtension = name?.split('.md')[0];
+		if (nameWithoutExtension) {
+			picker.value = nameWithoutExtension;
+			picker.valueSelection = [0, nameWithoutExtension.length];
+		}
 		// Update the pick state for this run
 		this.pickState.set(picker);
 
