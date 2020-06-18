@@ -41,7 +41,7 @@
 				"${workspaceFolder}/out/**/*.js"
 			],
 			"presentation": {
-				"hidden": true,
+				"hidden": false,
 			}
 		},
 		{
